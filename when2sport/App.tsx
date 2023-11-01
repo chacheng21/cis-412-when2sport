@@ -26,6 +26,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import ProfileCard from './src/components/ProfileCard'
+import FilterComponent from './src/components/FilterComponent'
+
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -93,6 +95,7 @@ function App(): JSX.Element {
               Read the docs to discover what to do next:
             </Section>
             <ProfileCard />
+            <FilterComponent />
             <LearnMoreLinks />
           </View>
         </ScrollView>
