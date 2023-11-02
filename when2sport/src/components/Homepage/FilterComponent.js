@@ -39,7 +39,7 @@ function FilterComponent(props) {
       {/* Time Filter */}
       {activeFilter === 'time' &&
         <>
-          <TouchableOpacity onPress={() => setShowStartPicker(true)}>
+          <TouchableOpacity style = {{marginTop: 20}} onPress={() => setShowStartPicker(true)}>
             <Text>Start: {startDate.toLocaleString()}</Text>
           </TouchableOpacity>
           {showStartPicker && (
@@ -72,7 +72,7 @@ function FilterComponent(props) {
       }
 
       {activeFilter === 'sport' &&
-        <Picker selectedValue={sport} onValueChange={setSport}>
+        <Picker style={{ marginBottom: -20 }} selectedValue={sport} onValueChange={setSport}>
           <Picker.Item label="All Sports" value="" />
           <Picker.Item label="Football" value="football" />
           <Picker.Item label="Basketball" value="basketball" />
@@ -82,7 +82,7 @@ function FilterComponent(props) {
       }
 
       {activeFilter === 'skill' &&
-        <RadioButton.Group onValueChange={setSkillLevel} value={skillLevel}>
+        <RadioButton.Group style={{ marginBottom: -20 }} onValueChange={setSkillLevel} value={skillLevel}>
           <RadioButton.Item label="Any" value="any" />
           <RadioButton.Item label="Beginner" value="beginner" />
           <RadioButton.Item label="Intermediate" value="intermediate" />
@@ -91,7 +91,7 @@ function FilterComponent(props) {
       }
 
       {activeFilter === 'location' &&
-        <View>
+        <View style = {{marginTop: 20, marginBottom: -20}}>
           <Text style={styles.distanceText}>Distance: {distance} km</Text>
           <Slider
             style={styles.slider}
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   filtersRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: -30,
   },
   filterButton: {
     flex: 1,
