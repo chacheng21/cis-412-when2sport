@@ -21,6 +21,7 @@ import FilterComponent from './src/components/Homepage/FilterComponent'
 import AvailableEvents from './src/components/Homepage/AvailableEvents';
 import UpcomingEvents from './src/components/Homepage/UpcomingEvents';
 import Header from './src/components/Header';
+import NewEventForm from './src/components/CreateEvent/NewEventForm';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,11 +33,14 @@ function App(): JSX.Element {
           contentInsetAdjustmentBehavior="automatic">
           <View>
             {/* HOMEPAGE */}
-            <Header username="Kisha" />
+            {/* <Header username="Kisha" />
             <FilterComponent />
             <UpcomingEvents />
-            <AvailableEvents />
-            {/* Create Event Page */}
+            <AvailableEvents /> */}
+            {/* CREATE EVENT PAGE */}
+            <Header username="Kisha" />
+            <NewEventForm />
+            {/* VIEW EVENT PAGE */}
           </View>
         </ScrollView>
       </SafeAreaView>
