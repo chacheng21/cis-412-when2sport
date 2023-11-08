@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, FlatList, TouchableOpacity } from "react-native";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 
-function UpcomingEvents() {
+const UpcomingEvents = () => {
   // Sample data for the FlatList
   const events = [
     { time: "16:00" },

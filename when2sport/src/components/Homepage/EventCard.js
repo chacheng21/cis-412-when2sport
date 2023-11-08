@@ -1,14 +1,14 @@
 import * as React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 
-function EventCard(props) {
+const EventCard = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.upperContainer}>
         <View style={styles.header}>
           <Image
             resizeMode="contain"
-            source={require("../../assets/icons/tennis-ball.png")} // Replace with your tennis ball image URL
+            source={require("../../assets/icons/tennis.png")} // Replace with your tennis ball image URL
             style={styles.logo}
           />
           <Text style={styles.name}>Charles Cheng</Text>
