@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, FlatList, TouchableOpacity } from "react-native";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
-import upcomingEvents from '../../assets/data/UpcomingEvents.json'
+import { useUpcomingEvents } from "../../constants/UpcomingEventsContext";
 
 const UpcomingEvents = ({ username, navigation }) => {
+  const { upcomingEvents, setUpcomingEvents } = useUpcomingEvents();
   // Sample data for the FlatList
-  const events = upcomingEvents
-
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -21,11 +20,11 @@ const UpcomingEvents = ({ username, navigation }) => {
       </View>
 
       <FlatList
-        data={events}
+        data={upcomingEvents}
         renderItem={({ item }) => (
           <TimeAssociatedEventCard username={username} title={item.title} date={item.date} startTime={item.startTime} endTime={item.endTime}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
-            host={item.host} navigation={navigation}
+            host={item.host} navigation={navigation} privacy={item.privacy}
           />
         )}
         keyExtractor={(item, index) => index}

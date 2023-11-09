@@ -4,6 +4,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
+import React, { createContext, useContext, useState } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -14,6 +15,7 @@ import Header from '../components/Header';
 
 const Homepage = ({ route, navigation }) => {
   const username = "Kisha"
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView

@@ -11,7 +11,7 @@ import NewEventForm from '../components/CreateEvent/NewEventForm';
 import Header from '../components/Header';
 
 const CreateNewEventPage = ({ navigation, route }) => {
-  const {username} = route.params
+  const {username } = route.params
   return (
     <>
       <SafeAreaView style={styles.safeArea}>
@@ -19,7 +19,7 @@ const CreateNewEventPage = ({ navigation, route }) => {
           contentInsetAdjustmentBehavior="automatic">
           <View>
             <Header username={username} />
-            <NewEventForm navigation={navigation} route={route}/>
+            <NewEventForm navigation={navigation} route={route} />
           </View>
         </ScrollView>
       </SafeAreaView>

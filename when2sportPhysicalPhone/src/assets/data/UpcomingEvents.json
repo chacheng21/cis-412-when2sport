@@ -9,7 +9,6 @@
       "location": "Penn Tennis Center",
       "capacity": 4,
       "attendees": ["Charles Cheng", "Kisha", "def"],
-      "isJoined": true,
       "host": "Charles Cheng",
       "privacy": false
   },
@@ -23,7 +22,6 @@
       "location": "Penn Tennis Center",
       "capacity": 10,
       "attendees": ["Charles Cheng", "Kisha", "def", "ghi", "jlk"],
-      "isJoined": true,
       "host": "Charles Cheng",
       "privacy": false
   }

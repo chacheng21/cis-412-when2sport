@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { View, StyleSheet, ScrollView, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
-import availableEvents from '../../assets/data/AvailableEvents.json'
-
-const events = availableEvents;
+import { useAvailableEvents } from "../../constants/AvailableEventsContext";
 
 const AvailableEvents = ({ username, navigation }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const { availableEvents, setAvailableEvents } = useAvailableEvents()
 
   const onDateChange = (event, date) => {
     if (date) {
@@ -27,10 +26,10 @@ const AvailableEvents = ({ username, navigation }) => {
       </View>
 
       <ScrollView style={styles.eventsList}>
-        {events.map((item, index) => {
+        {availableEvents.map((item, index) => {
           return <TimeAssociatedEventCard username={username} key={index} title={item.title} date={item.date} startTime={item.startTime} endTime={item.endTime}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
-            host={item.host} navigation={navigation}
+            host={item.host} navigation={navigation} privacy={item.privacy}
           />
         })}
       </ScrollView>

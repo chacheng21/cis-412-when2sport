@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Switch, StyleSheet, Button, TouchableOpacity, Modal } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { useUpcomingEvents } from '../../constants/UpcomingEventsContext';
 
 const formatDate = (date) => {
   return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(date);
 };
 
 const NewEventForm = ({ navigation, route }) => {
-  const {username} = route.params
+  const { upcomingEvents, setUpcomingEvents } = useUpcomingEvents();
+  const { username } = route.params
   const [title, setTitle] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [startTime, setStartTime] = useState(new Date());
@@ -44,7 +46,10 @@ const NewEventForm = ({ navigation, route }) => {
       privacy: isPrivate
     }
 
-    console.log(data)
+    const updatedUpcomingEvents = [ data, ...upcomingEvents]
+    setUpcomingEvents(updatedUpcomingEvents)
+
+    navigation.navigate("Home")
   }
 
   const onDateChange = (event, date) => {

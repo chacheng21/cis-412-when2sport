@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, Dimensions } from 'react-native';
+import { useUpcomingEvents } from "../../constants/UpcomingEventsContext";
+import { useAvailableEvents } from "../../constants/AvailableEventsContext";
 
 const icons = {
   calendar: require('../../assets/icons/calendar.png'),
@@ -29,9 +31,54 @@ const attendeesList = (attendees, capacity) => {
   return attendeeList
 }
 
-const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation, username }) => {
+const sortEventsChronologically = (events) => {
+  return events.sort((a, b) => {
+    // Combine date and startTime into a full datetime string
+    const dateTimeA = new Date(`${a.date} ${a.startTime}`);
+    const dateTimeB = new Date(`${b.date} ${b.startTime}`);
+
+    // Compare the datetime objects
+    return dateTimeA - dateTimeB;
+  });
+}
+
+const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation, username, privacy }) => {
   const getAttendeesList = attendeesList(attendees, capacity)
   const isJoined = attendees.includes(username)
+  const { upcomingEvents, setUpcomingEvents } = useUpcomingEvents()
+  const { availableEvents, setAvailableEvents } = useAvailableEvents()
+  const data = { title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation, privacy }
+
+  const leaveEvent = () => {
+    let newUpcomingEvents = [...upcomingEvents]
+    const toRemoveIndex = newUpcomingEvents.indexOf(data)
+    newUpcomingEvents.splice(toRemoveIndex, 1)
+    newUpcomingEvents = sortEventsChronologically(newUpcomingEvents)
+
+    let newAvailableEvents = [...availableEvents]
+    const toRemoveUserIndex = data.attendees.indexOf(username)
+    data.attendees.splice(toRemoveUserIndex, 1)
+    newAvailableEvents.push(data)
+    newAvailableEvents = sortEventsChronologically(newAvailableEvents)
+
+    setUpcomingEvents(newUpcomingEvents)
+    setAvailableEvents(newAvailableEvents)
+  }
+
+  const joinEvent = () => {
+    let newAvailableEvents = [...availableEvents]
+    const toRemoveIndex = newAvailableEvents.indexOf(data)
+    newAvailableEvents.splice(toRemoveIndex, 1)
+    newAvailableEvents = sortEventsChronologically(newAvailableEvents)
+
+    let newUpcomingEvents = [...upcomingEvents]
+    data.attendees.push(username)
+    newUpcomingEvents.push(data)
+    newUpcomingEvents = sortEventsChronologically(newUpcomingEvents)
+
+    setAvailableEvents(newAvailableEvents)
+    setUpcomingEvents(newUpcomingEvents)
+  }
 
   return (
     <>
@@ -85,11 +132,11 @@ const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, loca
       />
       {/* Join */}
       {!isJoined ? (
-          <TouchableOpacity style={styles.joinButton} >
+          <TouchableOpacity style={styles.joinButton} onPress={() => joinEvent()}>
             <Text style={styles.joinButtonText}>Join</Text>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity style={styles.leaveButton} >
+          <TouchableOpacity style={styles.leaveButton} onPress={() => leaveEvent()}>
             <Text style={styles.leaveButtonText}>Leave</Text>
           </TouchableOpacity>
         )
