@@ -4,25 +4,31 @@ import { View, StyleSheet, Image, Text, TouchableOpacity, FlatList, Dimensions }
 const iconMap = {
   Tennis: require('../../assets/icons/Tennis.png'),
   Soccer: require('../../assets/icons/Soccer.png'),
-  easy: require('../../assets/icons/easy.png'),
-  medium: require('../../assets/icons/medium.png'),
-  hard: require('../../assets/icons/hard.png'),
+  Beginner: require('../../assets/icons/easy.png'),
+  Intermediate: require('../../assets/icons/medium.png'),
+  Advanced: require('../../assets/icons/hard.png'),
 };
 
-const EventCard = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host }) => {
+
+const EventCard = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host, navigation }) => {
+  const handlePress = (title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host) => {
+    navigation.navigate("ViewEvent", { title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host })
+  }
+
   return (
-    <View style={styles.container}>
-      <View style={styles.upperContainer}>
-        <View style={styles.header}>
-          {/* Sport Image Icon */}
-          <Image
-            resizeMode="contain"
-            source={iconMap[sport]}
-            style={styles.logo}
-          />
-          {/* Join Leave Button */}
-          <Text style={styles.name}>{host}</Text>
-          {!isJoined ? (
+    <TouchableOpacity onPress = {() => handlePress(title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host)}>
+      <View style={styles.container}>
+        <View style={styles.upperContainer}>
+          <View style={styles.header}>
+            {/* Sport Image Icon */}
+            <Image
+              resizeMode="contain"
+              source={iconMap[sport]}
+              style={styles.logo}
+            />
+            {/* Join Leave Button */}
+            <Text style={styles.name}>{host}</Text>
+            {!isJoined ? (
               <TouchableOpacity style={styles.joinButton} onPress={() => { }}>
                 <Text style={styles.joinText}>Join</Text>
               </TouchableOpacity>
@@ -31,27 +37,28 @@ const EventCard = ({ title, date, time, sport, skillLevel, location, capacity, a
                 <Text style={styles.leaveText}>Leave</Text>
               </TouchableOpacity>
             )
-          }
+            }
+          </View>
+          {/* Skill Level */}
+          <View style={styles.difficultyContainer}>
+            <Image
+              source={iconMap[skillLevel]}
+              style={styles.difficultyIcon}
+            />
+          </View>
+          {/* Event Title */}
+          <Text style={styles.eventTitle}>{title}</Text>
+          {/* Event Location */}
+          <Text style={styles.location}>{`@ ${location}`}</Text>
+          {/* Attendees */}
+          {isJoined ? (
+            <Text style={styles.attendees}>{`${attendees} Attendees`}</Text>
+          ) : (
+            <Text style={styles.attendees}>{`${capacity - attendees} Spots Remaining`}</Text>
+          )}
         </View>
-        {/* Skill Level */}
-        <View style={styles.difficultyContainer}>
-          <Image
-            source={iconMap[skillLevel]}
-            style={styles.difficultyIcon}
-          />
-        </View>
-        {/* Event Title */}
-        <Text style={styles.eventTitle}>{title}</Text>
-        {/* Event Location */}
-        <Text style={styles.location}>{`@ ${location}`}</Text>
-        {/* Attendees */}
-        { isJoined ? (
-          <Text style={styles.attendees}>{`${attendees} Attendees`}</Text>
-        ) : (
-          <Text style={styles.attendees}>{`${capacity - attendees} Spots Remaining`}</Text>
-        )}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

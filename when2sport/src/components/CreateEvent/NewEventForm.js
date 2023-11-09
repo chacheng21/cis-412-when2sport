@@ -3,7 +3,7 @@ import { View, Text, TextInput, Switch, StyleSheet, Button, TouchableOpacity, Mo
 import { Picker } from '@react-native-picker/picker';
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-const NewEventForm = () => {
+const NewEventForm = ({ navigation }) => {
   const [title, setTitle] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [startTime, setStartTime] = useState(new Date());
@@ -177,7 +177,7 @@ const NewEventForm = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.cancelButton} >
+        <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.navigate("Home")}>
           <Text style={styles.buttonText}>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.saveButton} >

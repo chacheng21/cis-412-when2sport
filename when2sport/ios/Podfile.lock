@@ -375,7 +375,7 @@ PODS:
   - React-jsinspector (0.72.6)
   - React-logger (0.72.6):
     - glog
-  - react-native-safe-area-context (3.3.2):
+  - react-native-safe-area-context (3.4.1):
     - React-Core
   - react-native-slider (4.4.3):
     - React-Core
@@ -493,6 +493,9 @@ PODS:
     - React-Core
   - RNDateTimePicker (7.6.1):
     - React-Core
+  - RNScreens (3.27.0):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
   - RNSVG (12.1.1):
     - React
   - SocketRocket (0.6.1)
@@ -567,6 +570,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
+  - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -673,6 +677,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-picker/picker"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -712,7 +718,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 3bf18ff7cb03cd8dfdce08fbbc0d15058c1d71ae
   React-jsinspector: 194e32c6aab382d88713ad3dd0025c5f5c4ee072
   React-logger: cebf22b6cf43434e471dc561e5911b40ac01d289
-  react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
+  react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-slider: 1cdd6ba29675df21f30544253bf7351d3c2d68c4
   React-NativeModulesApple: 02e35e9a51e10c6422f04f5e4076a7c02243fff2
   React-perflogger: e3596db7e753f51766bceadc061936ef1472edc3
@@ -733,6 +739,7 @@ SPEC CHECKSUMS:
   ReactCommon: dd03c17275c200496f346af93a7b94c53f3093a4
   RNCPicker: 529d564911e93598cc399b56cc0769ce3675f8c8
   RNDateTimePicker: 8fb39263b721223e095248acaf6f406d5b7f6713
+  RNScreens: 3c2d122f5e08c192e254c510b212306da97d2581
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: b76f1acfda8212aa16b7e26bcce3983230c82603

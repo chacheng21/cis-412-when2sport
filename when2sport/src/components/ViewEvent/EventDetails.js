@@ -4,8 +4,11 @@ import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, Dimensions }
 const icons = {
   calendar: require('../../assets/icons/calendar.png'),
   clock: require('../../assets/icons/clock.png'),
-  sport: require('../../assets/icons/tennis.png'),
-  skill: require('../../assets/icons/easy.png'),
+  Tennis: require('../../assets/icons/Tennis.png'),
+  Soccer: require('../../assets/icons/Soccer.png'),
+  Beginner: require('../../assets/icons/easy.png'),
+  Intermediate: require('../../assets/icons/medium.png'),
+  Advanced: require('../../assets/icons/hard.png'),
   location: require('../../assets/icons/map-marker.png'),
 };
 
@@ -26,14 +29,14 @@ const attendeesList = (attendees, capacity) => {
   return attendeeList
 }
 
-const EventDetails = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host }) => {
+const EventDetails = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host, navigation }) => {
   const getAttendeesList = attendeesList(attendees, capacity)
   return (
     <>
       {/* Title and Back Button */}
       <View style={styles.header}>
         {/* onPress={onBackPress} */}
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity style={styles.backButton} onPress = {() => navigation.navigate("Home")}>
           <Text style={styles.backButtonText}>{'<'}</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{title}</Text>
@@ -49,11 +52,11 @@ const EventDetails = ({ title, date, time, sport, skillLevel, location, capacity
           <Text style={styles.text}>{time}</Text>
         </View>
         <View style={styles.row}>
-          <Image source={icons.sport} style={styles.icon} />
+          <Image source={icons[sport]} style={styles.icon} />
           <Text style={styles.text}>{sport}</Text>
         </View>
         <View style={styles.row}>
-          <Image source={icons.skill} style={styles.icon} />
+          <Image source={icons[skillLevel]} style={styles.icon} />
           <Text style={styles.text}>{skillLevel}</Text>
         </View>
         <View style={styles.row}>

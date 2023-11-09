@@ -5,11 +5,12 @@ import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 
 const events = [
   {
+    id: Math.random().toString(36).substring(7),
     title: "Tennis Doubles",
     date: "October 19, 2023",
     time: "4:00pm - 6:00pm",
     sport: "Tennis",
-    skillLevel: "easy",
+    skillLevel: "Beginner",
     location: "Penn Tennis Center",
     capacity: 4,
     attendees: 3,
@@ -17,11 +18,12 @@ const events = [
     host: "Charles Cheng"
   },
   {
+    id: Math.random().toString(36).substring(7),
     title: "Co-Ed Soccer",
     date: "October 19, 2023",
     time: "6:00pm - 9:00pm",
     sport: "Soccer",
-    skillLevel: "hard",
+    skillLevel: "Advanced",
     location: "Penn Park",
     capacity: 10,
     attendees: 8,
@@ -30,7 +32,7 @@ const events = [
   },
 ];
 
-const AvailableEvents = () => {
+const AvailableEvents = ({ navigation }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const onDateChange = (event, date) => {
@@ -51,10 +53,10 @@ const AvailableEvents = () => {
       </View>
 
       <ScrollView style={styles.eventsList}>
-        {events.map(item => {
-          return <TimeAssociatedEventCard title={item.title} date={item.date} time={item.time}
+        {events.map((item, index) => {
+          return <TimeAssociatedEventCard key={index} title={item.title} date={item.date} time={item.time}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
-            isJoined={item.isJoined} host={item.host} 
+            isJoined={item.isJoined} host={item.host} navigation={navigation}
           />
         })}
       </ScrollView>

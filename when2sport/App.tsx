@@ -16,6 +16,8 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import FilterComponent from './src/components/Homepage/FilterComponent'
 import AvailableEvents from './src/components/Homepage/AvailableEvents';
@@ -24,53 +26,22 @@ import Header from './src/components/Header';
 import NewEventForm from './src/components/CreateEvent/NewEventForm';
 import EventDetails from './src/components/ViewEvent/EventDetails';
 
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+import Homepage from './src/screens/Homepage';
+import CreateNewEventPage from './src/screens/CreateNewEventPage';
+import ViewEventPage from './src/screens/ViewEventPage';
 
+const Stack = createNativeStackNavigator();
+
+function App(): JSX.Element {
   return (
-    <>
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic">
-          <View>
-            {/* HOMEPAGE */}
-            <Header username="Kisha" />
-            <FilterComponent />
-            <UpcomingEvents />
-            <AvailableEvents />
-            {/* CREATE EVENT PAGE */}
-            {/* <Header username="Kisha" />
-            <NewEventForm /> */}
-            {/* VIEW EVENT PAGE */}
-            {/* <Header username="Kisha" />
-            <EventDetails title="Tennis Doubles" date="October 19, 2023" time="4:00pm - 6:00pm" 
-              sport="Tennis" skillLevel="Beginner" location="Penn Tennis Center" capacity={10} attendees={3}
-              isJoined={true} host="Charles Cheng"
-            /> */}
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Home" component={Homepage} />
+        <Stack.Screen name="CreateNewEvent" component={CreateNewEventPage} />
+        <Stack.Screen name="ViewEvent" component={ViewEventPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;

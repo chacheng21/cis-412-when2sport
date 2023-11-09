@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, FlatList, TouchableOpacity } from "react-native";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 
-const UpcomingEvents = () => {
+const UpcomingEvents = ({ navigation }) => {
   // Sample data for the FlatList
   const events = [
     {
@@ -10,7 +10,7 @@ const UpcomingEvents = () => {
       date: "October 19, 2023",
       time: "4:00pm - 6:00pm",
       sport: "Tennis",
-      skillLevel: "easy",
+      skillLevel: "Beginner",
       location: "Penn Tennis Center",
       capacity: 4,
       attendees: 3,
@@ -22,7 +22,7 @@ const UpcomingEvents = () => {
       date: "October 19, 2023",
       time: "7:00pm - 9:00pm",
       sport: "Tennis",
-      skillLevel: "medium",
+      skillLevel: "Intermediate",
       location: "Penn Tennis Center",
       capacity: 10,
       attendees: 8,
@@ -35,7 +35,11 @@ const UpcomingEvents = () => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>My Upcoming Events</Text>
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={styles.addButton} onPress = {
+          () => {
+            navigation.navigate('CreateNewEvent')
+          }
+        }>
           <Text style={styles.addButtonText}>+</Text>
         </TouchableOpacity>
       </View>
@@ -45,7 +49,7 @@ const UpcomingEvents = () => {
         renderItem={({ item }) => (
           <TimeAssociatedEventCard title={item.title} date={item.date} time={item.time}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
-            isJoined={item.isJoined} host={item.host} 
+            isJoined={item.isJoined} host={item.host} navigation={navigation}
           />
         )}
         keyExtractor={item => item.time}
