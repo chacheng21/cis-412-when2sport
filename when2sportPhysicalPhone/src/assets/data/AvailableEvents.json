@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Tennis Doubles",
+    "date": "October 19, 2023",
+    "time": "4:00pm - 6:00pm",
+    "startTime": "4:00 PM",
+    "endTime": "6:00 PM",
+    "sport": "Tennis",
+    "skillLevel": "Beginner",
+    "location": "Penn Tennis Center",
+    "capacity": 4,
+    "attendees": ["Charles Cheng", "abc", "def"],
+    "host": "Charles Cheng",
+    "privacy": false
+  },
+  {
+    "title": "Co-Ed Soccer",
+    "date": "October 19, 2023",
+    "startTime": "6:00 PM",
+    "endTime": "9:00 PM",
+    "sport": "Soccer",
+    "skillLevel": "Advanced",
+    "location": "Penn Park",
+    "capacity": 10,
+    "attendees": ["Jane Doe", "abc", "def", "abc", "def", "abc", "def"],
+    "host": "Jane Doe",
+    "privacy": false
+  }
+]
