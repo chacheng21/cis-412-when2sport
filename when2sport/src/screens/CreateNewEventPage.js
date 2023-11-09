@@ -10,13 +10,14 @@ import NewEventForm from '../components/CreateEvent/NewEventForm';
 import Header from '../components/Header';
 
 const CreateNewEventPage = ({ navigation, route }) => {
+  const {username} = route.params
   return (
     <>
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic">
           <View>
-            <Header username="Kisha" />
+            <Header username={username} />
             <NewEventForm navigation={navigation} route={route}/>
           </View>
         </ScrollView>
