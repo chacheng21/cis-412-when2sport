@@ -9,7 +9,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NewEventForm from '../components/CreateEvent/NewEventForm';
 import Header from '../components/Header';
 
-const CreateNewEventPage = ({ route, navigation }) => {
+const CreateNewEventPage = ({ navigation, route }) => {
   return (
     <>
       <SafeAreaView>
@@ -17,7 +17,7 @@ const CreateNewEventPage = ({ route, navigation }) => {
           contentInsetAdjustmentBehavior="automatic">
           <View>
             <Header username="Kisha" />
-            <NewEventForm navigation={navigation} />
+            <NewEventForm navigation={navigation} route={route}/>
           </View>
         </ScrollView>
       </SafeAreaView>

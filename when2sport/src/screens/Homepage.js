@@ -12,16 +12,17 @@ import UpcomingEvents from '../components/Homepage/UpcomingEvents';
 import Header from '../components/Header';
 
 const Homepage = ({ route, navigation }) => {
+  const username = "Kisha"
   return (
     <>
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic">
           <View>
-            <Header username="Kisha" />
+            <Header username={username} />
             <FilterComponent />
-            <UpcomingEvents navigation={navigation}/>
-            <AvailableEvents navigation={navigation} />
+            <UpcomingEvents username={username} navigation={navigation}/>
+            <AvailableEvents username={username} navigation={navigation} />
           </View>
         </ScrollView>
       </SafeAreaView>

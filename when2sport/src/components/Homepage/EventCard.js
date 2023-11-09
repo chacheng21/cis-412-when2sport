@@ -10,13 +10,15 @@ const iconMap = {
 };
 
 
-const EventCard = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host, navigation }) => {
-  const handlePress = (title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host) => {
-    navigation.navigate("ViewEvent", { title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host })
+const EventCard = ({ username, title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation }) => {
+  const handlePress = (title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username) => {
+    navigation.navigate("ViewEvent", { title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username })
   }
 
+  const isJoined = attendees.includes(username)
+  
   return (
-    <TouchableOpacity onPress = {() => handlePress(title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host)}>
+    <TouchableOpacity onPress = {() => handlePress(title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username)}>
       <View style={styles.container}>
         <View style={styles.upperContainer}>
           <View style={styles.header}>
@@ -52,9 +54,9 @@ const EventCard = ({ title, date, time, sport, skillLevel, location, capacity, a
           <Text style={styles.location}>{`@ ${location}`}</Text>
           {/* Attendees */}
           {isJoined ? (
-            <Text style={styles.attendees}>{`${attendees} Attendees`}</Text>
+            <Text style={styles.attendees}>{`${attendees.length} Attendees`}</Text>
           ) : (
-            <Text style={styles.attendees}>{`${capacity - attendees} Spots Remaining`}</Text>
+            <Text style={styles.attendees}>{`${capacity - attendees.length} Spots Remaining`}</Text>
           )}
         </View>
       </View>

@@ -1,35 +1,11 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, FlatList, TouchableOpacity } from "react-native";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
+import upcomingEvents from '../../assets/data/UpcomingEvents.json'
 
-const UpcomingEvents = ({ navigation }) => {
+const UpcomingEvents = ({ username, navigation }) => {
   // Sample data for the FlatList
-  const events = [
-    {
-      title: "Tennis Doubles",
-      date: "October 19, 2023",
-      time: "4:00pm - 6:00pm",
-      sport: "Tennis",
-      skillLevel: "Beginner",
-      location: "Penn Tennis Center",
-      capacity: 4,
-      attendees: 3,
-      isJoined: true,
-      host: "Charles Cheng"
-    },
-    {
-      title: "Tennis Doubles",
-      date: "October 19, 2023",
-      time: "7:00pm - 9:00pm",
-      sport: "Tennis",
-      skillLevel: "Intermediate",
-      location: "Penn Tennis Center",
-      capacity: 10,
-      attendees: 8,
-      isJoined: true,
-      host: "Charles Cheng"
-    },
-  ];
+  const events = upcomingEvents
 
   return (
     <View style={styles.container}>
@@ -37,7 +13,7 @@ const UpcomingEvents = ({ navigation }) => {
         <Text style={styles.headerText}>My Upcoming Events</Text>
         <TouchableOpacity style={styles.addButton} onPress = {
           () => {
-            navigation.navigate('CreateNewEvent')
+            navigation.navigate('CreateNewEvent', { username })
           }
         }>
           <Text style={styles.addButtonText}>+</Text>
@@ -47,12 +23,12 @@ const UpcomingEvents = ({ navigation }) => {
       <FlatList
         data={events}
         renderItem={({ item }) => (
-          <TimeAssociatedEventCard title={item.title} date={item.date} time={item.time}
+          <TimeAssociatedEventCard username={username} title={item.title} date={item.date} startTime={item.startTime} endTime={item.endTime}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
-            isJoined={item.isJoined} host={item.host} navigation={navigation}
+            host={item.host} navigation={navigation}
           />
         )}
-        keyExtractor={item => item.time}
+        keyExtractor={(item, index) => index}
         horizontal={true}
         pagingEnabled={true}
         showsHorizontalScrollIndicator={false}

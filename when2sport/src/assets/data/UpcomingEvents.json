@@ -1,0 +1,30 @@
+[
+  {
+      "title": "Tennis Doubles",
+      "date": "October 19, 2023",
+      "startTime": "4:00 PM",
+      "endTime": "6:00 PM",
+      "sport": "Tennis",
+      "skillLevel": "Beginner",
+      "location": "Penn Tennis Center",
+      "capacity": 4,
+      "attendees": ["Charles Cheng", "Kisha", "def"],
+      "isJoined": true,
+      "host": "Charles Cheng",
+      "privacy": false
+  },
+  {
+      "title": "Tennis Doubles",
+      "date": "October 19, 2023",
+      "startTime": "7:00 PM",
+      "endTime": "9:00 PM",
+      "sport": "Tennis",
+      "skillLevel": "Intermediate",
+      "location": "Penn Tennis Center",
+      "capacity": 10,
+      "attendees": ["Charles Cheng", "Kisha", "def", "ghi", "jlk"],
+      "isJoined": true,
+      "host": "Charles Cheng",
+      "privacy": false
+  }
+]

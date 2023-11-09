@@ -10,17 +10,17 @@ import EventDetails from '../components/ViewEvent/EventDetails';
 import Header from '../components/Header';
 
 const ViewEventPage = ({ route, navigation }) => {
-  const { title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host } = route.params
+  const { username, title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host } = route.params
   return (
     <>
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic">
           <View>
-            <Header username="Kisha" />
-            <EventDetails title={title} date={date} time={time}
+            <Header username={username} />
+            <EventDetails username={username} title={title} date={date} startTime={startTime} endTime={endTime}
               sport={sport} skillLevel={skillLevel} location={location} capacity={capacity} attendees={attendees}
-              isJoined={isJoined} host={host} navigation={navigation}
+              host={host} navigation={navigation}
             />
           </View>
         </ScrollView>

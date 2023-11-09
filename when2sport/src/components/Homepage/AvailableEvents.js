@@ -2,37 +2,11 @@ import React, { useState } from "react";
 import { View, StyleSheet, ScrollView, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
+import availableEvents from '../../assets/data/AvailableEvents.json'
 
-const events = [
-  {
-    id: Math.random().toString(36).substring(7),
-    title: "Tennis Doubles",
-    date: "October 19, 2023",
-    time: "4:00pm - 6:00pm",
-    sport: "Tennis",
-    skillLevel: "Beginner",
-    location: "Penn Tennis Center",
-    capacity: 4,
-    attendees: 3,
-    isJoined: false,
-    host: "Charles Cheng"
-  },
-  {
-    id: Math.random().toString(36).substring(7),
-    title: "Co-Ed Soccer",
-    date: "October 19, 2023",
-    time: "6:00pm - 9:00pm",
-    sport: "Soccer",
-    skillLevel: "Advanced",
-    location: "Penn Park",
-    capacity: 10,
-    attendees: 8,
-    isJoined: false,
-    host: "Jane Doe"
-  },
-];
+const events = availableEvents;
 
-const AvailableEvents = ({ navigation }) => {
+const AvailableEvents = ({ username, navigation }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const onDateChange = (event, date) => {
@@ -54,9 +28,9 @@ const AvailableEvents = ({ navigation }) => {
 
       <ScrollView style={styles.eventsList}>
         {events.map((item, index) => {
-          return <TimeAssociatedEventCard key={index} title={item.title} date={item.date} time={item.time}
+          return <TimeAssociatedEventCard username={username} key={index} title={item.title} date={item.date} startTime={item.startTime} endTime={item.endTime}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
-            isJoined={item.isJoined} host={item.host} navigation={navigation}
+            host={item.host} navigation={navigation}
           />
         })}
       </ScrollView>

@@ -19,18 +19,20 @@ const itemWidth = (screenWidth - 2 * desiredMargin) / 4;
 
 const attendeesList = (attendees, capacity) => {
   let attendeeList = []
-  for (let i = 0; i < attendees; i++) {
+  for (let i = 0; i < attendees.length; i++) {
     attendeeList.push(true)
   }
-  for (let i = 0; i < (capacity - attendees); i++) {
+  for (let i = 0; i < (capacity - attendees.length); i++) {
     attendeeList.push(false)
   }
 
   return attendeeList
 }
 
-const EventDetails = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host, navigation }) => {
+const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation, username }) => {
   const getAttendeesList = attendeesList(attendees, capacity)
+  const isJoined = attendees.includes(username)
+
   return (
     <>
       {/* Title and Back Button */}
@@ -49,7 +51,7 @@ const EventDetails = ({ title, date, time, sport, skillLevel, location, capacity
         </View>
         <View style={styles.row}>
           <Image source={icons.clock} style={styles.icon} />
-          <Text style={styles.text}>{time}</Text>
+          <Text style={styles.text}>{`${startTime} - ${endTime}`}</Text>
         </View>
         <View style={styles.row}>
           <Image source={icons[sport]} style={styles.icon} />

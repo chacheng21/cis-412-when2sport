@@ -3,7 +3,12 @@ import { View, Text, TextInput, Switch, StyleSheet, Button, TouchableOpacity, Mo
 import { Picker } from '@react-native-picker/picker';
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-const NewEventForm = ({ navigation }) => {
+const formatDate = (date) => {
+  return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(date);
+};
+
+const NewEventForm = ({ navigation, route }) => {
+  const {username} = route.params
   const [title, setTitle] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [startTime, setStartTime] = useState(new Date());
@@ -12,9 +17,35 @@ const NewEventForm = ({ navigation }) => {
   const [skillLevel, setSkillLevel] = useState('');
   const [isSportPickerVisible, setSportPickerVisible] = useState(false);
   const [isSkillPickerVisible, setSkillPickerVisible] = useState(false);
-  const [capacity, setCapacity] = useState('');
+  const [capacity, setCapacity] = useState();
   const [location, setLocation] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
+
+  const submitForm = () => {
+    const data = {
+      title: title,
+      date: formatDate(selectedDate),
+      startTime: startTime.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      }),
+      endTime: endTime.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      }),
+      sport: sport,
+      skillLevel: skillLevel,
+      location: location,
+      capacity: capacity,
+      attendees: [username],
+      host: username, 
+      privacy: isPrivate
+    }
+
+    console.log(data)
+  }
 
   const onDateChange = (event, date) => {
     if (date) {
@@ -30,10 +61,6 @@ const NewEventForm = ({ navigation }) => {
   // Function to toggle skill picker modal
   const toggleSkillPicker = () => {
     setSkillPickerVisible(!isSkillPickerVisible);
-  };
-
-  const submitForm = () => {
-    // Logic to submit the form, e.g., save to a backend
   };
 
   return (
@@ -101,7 +128,7 @@ const NewEventForm = ({ navigation }) => {
                 style={{ width: '100%' }}
               >
                 <Picker.Item label="All Sports" value="All Sports" />
-                <Picker.Item label="Football" value="Football" />
+                <Picker.Item label="Soccer" value="Soccer" />
                 <Picker.Item label="Basketball" value="Basketball" />
                 <Picker.Item label="Tennis" value="Tennis" />
                 <Picker.Item label="Volleyball" value="Volleyball" />
