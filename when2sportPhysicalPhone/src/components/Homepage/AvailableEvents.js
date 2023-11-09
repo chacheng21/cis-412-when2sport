@@ -29,7 +29,7 @@ const AvailableEvents = ({ username, navigation }) => {
         {availableEvents.map((item, index) => {
           return <TimeAssociatedEventCard username={username} key={index} title={item.title} date={item.date} startTime={item.startTime} endTime={item.endTime}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
-            host={item.host} navigation={navigation} privacy={item.privacy}
+            host={item.host} navigation={navigation} privacy={item.privacy} id={item.id}
           />
         })}
       </ScrollView>

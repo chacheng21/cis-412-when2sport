@@ -24,7 +24,7 @@ const UpcomingEvents = ({ username, navigation }) => {
         renderItem={({ item }) => (
           <TimeAssociatedEventCard username={username} title={item.title} date={item.date} startTime={item.startTime} endTime={item.endTime}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
-            host={item.host} navigation={navigation} privacy={item.privacy}
+            host={item.host} navigation={navigation} privacy={item.privacy} id ={item.id}
           />
         )}
         keyExtractor={(item, index) => index}

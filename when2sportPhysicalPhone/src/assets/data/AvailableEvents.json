@@ -1,19 +1,20 @@
 [
   {
-    "title": "Tennis Doubles",
+    "id": 10234567,
+    "title": "Tennis Singles",
     "date": "October 19, 2023",
-    "time": "4:00pm - 6:00pm",
     "startTime": "4:00 PM",
     "endTime": "6:00 PM",
     "sport": "Tennis",
     "skillLevel": "Beginner",
     "location": "Penn Tennis Center",
-    "capacity": 4,
-    "attendees": ["Charles Cheng", "abc", "def"],
+    "capacity": 2,
+    "attendees": ["Charles Cheng"],
     "host": "Charles Cheng",
     "privacy": false
   },
   {
+    "id": 11234567,
     "title": "Co-Ed Soccer",
     "date": "October 19, 2023",
     "startTime": "6:00 PM",

@@ -1,5 +1,6 @@
 [
   {
+      "id": 10392103,
       "title": "Tennis Doubles",
       "date": "October 19, 2023",
       "startTime": "4:00 PM",
@@ -13,11 +14,12 @@
       "privacy": false
   },
   {
-      "title": "Tennis Doubles",
+      "id": 12312312,
+      "title": "Soccer",
       "date": "October 19, 2023",
       "startTime": "7:00 PM",
       "endTime": "9:00 PM",
-      "sport": "Tennis",
+      "sport": "Soccer",
       "skillLevel": "Intermediate",
       "location": "Penn Tennis Center",
       "capacity": 10,

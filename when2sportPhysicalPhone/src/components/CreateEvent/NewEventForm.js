@@ -43,7 +43,8 @@ const NewEventForm = ({ navigation, route }) => {
       capacity: capacity,
       attendees: [username],
       host: username, 
-      privacy: isPrivate
+      privacy: isPrivate,
+      id: Math.floor(10000000 + Math.random() * 90000000),
     }
 
     const updatedUpcomingEvents = [ data, ...upcomingEvents]

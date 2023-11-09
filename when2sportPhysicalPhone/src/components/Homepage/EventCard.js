@@ -22,50 +22,42 @@ const sortEventsChronologically = (events) => {
   });
 }
 
-const EventCard = ({ username, title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation, privacy }) => {
+const EventCard = ({ username, title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation, privacy, id }) => {
   const { upcomingEvents, setUpcomingEvents } = useUpcomingEvents()
   const { availableEvents, setAvailableEvents } = useAvailableEvents()
-  const data = { title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation, privacy }
+  const data = { title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, navigation, privacy, id }
 
   const leaveEvent = () => {
-    let newUpcomingEvents = [...upcomingEvents]
-    const toRemoveIndex = newUpcomingEvents.indexOf(data)
-    newUpcomingEvents.splice(toRemoveIndex, 1)
-    newUpcomingEvents = sortEventsChronologically(newUpcomingEvents)
+    const newUpcomingEvents = upcomingEvents.filter(event => event.id !== id);
 
-    let newAvailableEvents = [...availableEvents]
+    const newAvailableEvents = [...availableEvents]
     const toRemoveUserIndex = data.attendees.indexOf(username)
     data.attendees.splice(toRemoveUserIndex, 1)
     newAvailableEvents.push(data)
-    newAvailableEvents = sortEventsChronologically(newAvailableEvents)
 
     setUpcomingEvents(newUpcomingEvents)
     setAvailableEvents(newAvailableEvents)
   }
 
   const joinEvent = () => {
-    let newAvailableEvents = [...availableEvents]
-    const toRemoveIndex = newAvailableEvents.indexOf(data)
-    newAvailableEvents.splice(toRemoveIndex, 1)
-    newAvailableEvents = sortEventsChronologically(newAvailableEvents)
+    const newAvailableEvents = availableEvents.filter(event => event.id !== id);
 
-    let newUpcomingEvents = [...upcomingEvents]
+    const newUpcomingEvents = [...upcomingEvents]
     data.attendees.push(username)
     newUpcomingEvents.push(data)
-    newUpcomingEvents = sortEventsChronologically(newUpcomingEvents)
 
     setAvailableEvents(newAvailableEvents)
     setUpcomingEvents(newUpcomingEvents)
   }
 
-  const handlePress = (title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username, privacy) => {
-    navigation.navigate("ViewEvent", { title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username, privacy })
+  const handlePress = (title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username, privacy, id) => {
+    navigation.navigate("ViewEvent", { title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username, privacy, id })
   }
 
   const isJoined = attendees.includes(username)
   
   return (
-    <TouchableOpacity onPress = {() => handlePress(title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username)}>
+    <TouchableOpacity onPress = {() => handlePress(title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username, privacy, id)}>
       <View style={styles.container}>
         <View style={styles.upperContainer}>
           <View style={styles.header}>
