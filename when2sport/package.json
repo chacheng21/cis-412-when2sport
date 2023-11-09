@@ -13,12 +13,15 @@
     "@react-native-community/datetimepicker": "^7.6.1",
     "@react-native-community/slider": "^4.4.3",
     "@react-native-picker/picker": "^2.5.1",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
     "native-base": "^3.4.28",
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-modal": "^13.0.1",
     "react-native-paper": "^5.11.1",
-    "react-native-safe-area-context": "^3.3.2",
+    "react-native-safe-area-context": "^3.4.1",
+    "react-native-screens": "^3.27.0",
     "react-native-svg": "^12.1.1"
   },
   "devDependencies": {

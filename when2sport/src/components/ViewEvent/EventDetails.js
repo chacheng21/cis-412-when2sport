@@ -26,7 +26,7 @@ const attendeesList = (attendees, capacity) => {
   return attendeeList
 }
 
-const EventDetails = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined }) => {
+const EventDetails = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host }) => {
   const getAttendeesList = attendeesList(attendees, capacity)
   return (
     <>

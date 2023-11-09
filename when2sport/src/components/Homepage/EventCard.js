@@ -1,35 +1,55 @@
 import * as React from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity, FlatList, Dimensions } from "react-native";
 
-const EventCard = (props) => {
+const iconMap = {
+  Tennis: require('../../assets/icons/Tennis.png'),
+  Soccer: require('../../assets/icons/Soccer.png'),
+  easy: require('../../assets/icons/easy.png'),
+  medium: require('../../assets/icons/medium.png'),
+  hard: require('../../assets/icons/hard.png'),
+};
+
+const EventCard = ({ title, date, time, sport, skillLevel, location, capacity, attendees, isJoined, host }) => {
   return (
     <View style={styles.container}>
       <View style={styles.upperContainer}>
         <View style={styles.header}>
+          {/* Sport Image Icon */}
           <Image
             resizeMode="contain"
-            source={require("../../assets/icons/tennis.png")} // Replace with your tennis ball image URL
+            source={iconMap[sport]}
             style={styles.logo}
           />
-          <Text style={styles.name}>Charles Cheng</Text>
-          <TouchableOpacity style={styles.leaveButton} onPress={() => { }}>
-            <Text style={styles.leaveText}>Leave</Text>
-          </TouchableOpacity>
+          {/* Join Leave Button */}
+          <Text style={styles.name}>{host}</Text>
+          {!isJoined ? (
+              <TouchableOpacity style={styles.joinButton} onPress={() => { }}>
+                <Text style={styles.joinText}>Join</Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity style={styles.leaveButton} onPress={() => { }}>
+                <Text style={styles.leaveText}>Leave</Text>
+              </TouchableOpacity>
+            )
+          }
         </View>
+        {/* Skill Level */}
         <View style={styles.difficultyContainer}>
           <Image
-            source={require("../../assets/icons/easy.png")}
+            source={iconMap[skillLevel]}
             style={styles.difficultyIcon}
           />
         </View>
-        <Text style={styles.eventTitle}>Tennis Doubles</Text>
-        <Text style={styles.location}>@ Penn Tennis Center</Text>
-        <View style={styles.imagesContainer}>
-          <Image source={require("../../assets/icons/person-circle.png")} style={styles.icon} />
-          <Image source={require("../../assets/icons/person-circle.png")} style={styles.icon} />
-          <Image source={require("../../assets/icons/person-circle.png")} style={styles.icon} />
-          <View style={styles.emptyIcon} />
-        </View>
+        {/* Event Title */}
+        <Text style={styles.eventTitle}>{title}</Text>
+        {/* Event Location */}
+        <Text style={styles.location}>{`@ ${location}`}</Text>
+        {/* Attendees */}
+        { isJoined ? (
+          <Text style={styles.attendees}>{`${attendees} Attendees`}</Text>
+        ) : (
+          <Text style={styles.attendees}>{`${capacity - attendees} Spots Remaining`}</Text>
+        )}
       </View>
     </View>
   );
@@ -40,7 +60,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#FFF",
     padding: 10,
-    width: 250,
+    width: 260,
     elevation: 5,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
@@ -62,6 +82,14 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
   },
+  joinButton: {
+    backgroundColor: 'red',
+    borderRadius: 5,
+    padding: 5,
+  },
+  joinText: {
+    color: 'white',
+  },
   leaveButton: {
     borderWidth: 1,
     borderColor: "red",
@@ -81,6 +109,11 @@ const styles = StyleSheet.create({
     color: "#6F9BD1",
     marginTop: 5,
   },
+  attendees: {
+    fontSize: 14,
+    color: "black",
+    marginTop: 5,
+  },
   imagesContainer: {
     flexDirection: "row",
     justifyContent: "flex-start",
@@ -90,13 +123,11 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     borderRadius: 12.5,
-    marginRight: 10,
   },
   emptyIcon: {
     width: 25,
     height: 25,
     borderRadius: 12.5,
-    marginRight: 10,
     backgroundColor: "#e0e0e0", // Placeholder color
   },
   upperContainer: {

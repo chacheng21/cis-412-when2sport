@@ -5,8 +5,30 @@ import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 const UpcomingEvents = () => {
   // Sample data for the FlatList
   const events = [
-    { time: "16:00" },
-    { time: "18:00" }
+    {
+      title: "Tennis Doubles",
+      date: "October 19, 2023",
+      time: "4:00pm - 6:00pm",
+      sport: "Tennis",
+      skillLevel: "easy",
+      location: "Penn Tennis Center",
+      capacity: 4,
+      attendees: 3,
+      isJoined: true,
+      host: "Charles Cheng"
+    },
+    {
+      title: "Tennis Doubles",
+      date: "October 19, 2023",
+      time: "7:00pm - 9:00pm",
+      sport: "Tennis",
+      skillLevel: "medium",
+      location: "Penn Tennis Center",
+      capacity: 10,
+      attendees: 8,
+      isJoined: true,
+      host: "Charles Cheng"
+    },
   ];
 
   return (
@@ -21,7 +43,10 @@ const UpcomingEvents = () => {
       <FlatList
         data={events}
         renderItem={({ item }) => (
-          <TimeAssociatedEventCard time={item.time} />
+          <TimeAssociatedEventCard title={item.title} date={item.date} time={item.time}
+            sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
+            isJoined={item.isJoined} host={item.host} 
+          />
         )}
         keyExtractor={item => item.time}
         horizontal={true}

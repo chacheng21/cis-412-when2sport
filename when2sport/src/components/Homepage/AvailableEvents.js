@@ -3,7 +3,34 @@ import { View, StyleSheet, ScrollView, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 
-function AvailableEvents() {
+const events = [
+  {
+    title: "Tennis Doubles",
+    date: "October 19, 2023",
+    time: "4:00pm - 6:00pm",
+    sport: "Tennis",
+    skillLevel: "easy",
+    location: "Penn Tennis Center",
+    capacity: 4,
+    attendees: 3,
+    isJoined: false,
+    host: "Charles Cheng"
+  },
+  {
+    title: "Co-Ed Soccer",
+    date: "October 19, 2023",
+    time: "6:00pm - 9:00pm",
+    sport: "Soccer",
+    skillLevel: "hard",
+    location: "Penn Park",
+    capacity: 10,
+    attendees: 8,
+    isJoined: false,
+    host: "Jane Doe"
+  },
+];
+
+const AvailableEvents = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const onDateChange = (event, date) => {
@@ -24,10 +51,12 @@ function AvailableEvents() {
       </View>
 
       <ScrollView style={styles.eventsList}>
-        {/* Sample Events */}
-        <TimeAssociatedEventCard time="16:00" />
-        <TimeAssociatedEventCard time="18:00" />
-        <TimeAssociatedEventCard time="20:00" />
+        {events.map(item => {
+          return <TimeAssociatedEventCard title={item.title} date={item.date} time={item.time}
+            sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
+            isJoined={item.isJoined} host={item.host} 
+          />
+        })}
       </ScrollView>
     </View>
   );
@@ -51,6 +80,7 @@ const styles = StyleSheet.create({
     height: EVENT_CARD_HEIGHT * 2, // Display 2 events at a time
     flex: 1,
     marginTop: 10,
+    left: 8,
   },
 });
 
