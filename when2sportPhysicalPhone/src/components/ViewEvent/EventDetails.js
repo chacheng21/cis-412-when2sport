@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     flexGrow: 1,
-    left: 130,
+    left: 140,
     marginTop: 40,
     marginHorizontal: 5,
     width: 100,
