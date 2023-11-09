@@ -174,7 +174,9 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16, // Adjust the padding as needed
+    justifyContent: 'center', // Center content horizontally
+    padding: 16,
+    // Remove 'position' and 'left' from the backButton style if present
   },
   backButton: {
     position: 'absolute',
@@ -185,10 +187,10 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontWeight: 'bold',
-    fontSize: 18, // Adjust the size as necessary
-    marginVertical: 10, // Space above and below the title
-    position: 'absolute',
-    left: 130, // Distance from the left edge of the card
+    fontSize: 18,
+    marginVertical: 10,
+    textAlign: 'center', // Align text to center
+    flex: 1, // Take up available space
   },
   imagesContainer: {
     flexDirection: "row",
