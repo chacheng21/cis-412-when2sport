@@ -52,20 +52,20 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   addButton: {
     backgroundColor: 'red',
     borderRadius: 25,
-    width: 50,
-    height: 50,
+    width: 45,
+    height: 45,
     justifyContent: 'center',
     alignItems: 'center',
   },
   addButtonText: {
     color: 'white',
-    fontSize: 30,
+    fontSize: 40,
   },
 });
 

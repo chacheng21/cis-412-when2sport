@@ -6,6 +6,7 @@ import { useAvailableEvents } from "../../constants/AvailableEventsContext";
 const iconMap = {
   Tennis: require('../../assets/icons/Tennis.png'),
   Soccer: require('../../assets/icons/Soccer.png'),
+  Volleyball: require('../../assets/icons/Volleyball.png'),
   Beginner: require('../../assets/icons/easy.png'),
   Intermediate: require('../../assets/icons/medium.png'),
   Advanced: require('../../assets/icons/hard.png'),
@@ -133,29 +134,31 @@ const styles = StyleSheet.create({
   joinButton: {
     backgroundColor: 'red',
     borderRadius: 5,
-    padding: 5,
+    padding: 8,
   },
   joinText: {
+    fontSize: 14,
     color: 'white',
   },
   leaveButton: {
     borderWidth: 1,
     borderColor: "red",
     borderRadius: 5,
-    padding: 5,
+    padding: 8,
   },
   leaveText: {
+    fontSize: 14,
     color: "red",
   },
   eventTitle: {
-    fontSize: 18,
+    fontSize: 22,
     color: "#000",
-    marginTop: 10,
+    marginTop: 6,
   },
   location: {
     fontSize: 14,
     color: "#6F9BD1",
-    marginTop: 5,
+    marginTop: 8,
   },
   attendees: {
     fontSize: 14,
@@ -168,13 +171,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   icon: {
-    width: 25,
-    height: 25,
-    borderRadius: 12.5,
+    width: 16,
+    height: 16,
+    borderRadius: 10,
   },
   emptyIcon: {
-    width: 25,
-    height: 25,
+    width: 16,
+    height: 16,
     borderRadius: 12.5,
     backgroundColor: "#e0e0e0", // Placeholder color
   },

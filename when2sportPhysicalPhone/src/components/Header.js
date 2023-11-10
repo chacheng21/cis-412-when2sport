@@ -20,29 +20,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#6F9BD1',
     borderRadius: 10,
     top: -15,
-    height: 150,  // Adjust this height if necessary
+    height: 130,  // Adjust this height if necessary
   },
   welcomeText: {
     fontSize: 18,
     color: 'white',
     position: 'absolute', // Make it an absolute positioned element
     top: 40,  // Adjust top and left to position the text as needed
-    left: 30,
+    left: 20,
   },
   title: {
     fontSize: 25,
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-    top: 40
+    top: 30
   },
   icon: {
     width: 40,
     height: 40,
     borderRadius: 12.5,
     position: 'absolute',
-    top: -60,
-    left: 310,
+    top: -50,
+    left: 330,
   },
 });
 

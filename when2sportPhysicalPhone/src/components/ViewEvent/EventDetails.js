@@ -8,6 +8,7 @@ const icons = {
   clock: require('../../assets/icons/clock.png'),
   Tennis: require('../../assets/icons/Tennis.png'),
   Soccer: require('../../assets/icons/Soccer.png'),
+  Volleyball: require('../../assets/icons/Volleyball.png'),
   Beginner: require('../../assets/icons/easy.png'),
   Intermediate: require('../../assets/icons/medium.png'),
   Advanced: require('../../assets/icons/hard.png'),
@@ -77,9 +78,11 @@ const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, loca
       {/* Title and Back Button */}
       <View style={styles.header}>
         {/* onPress={onBackPress} */}
+        <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.backButton} onPress = {() => navigation.navigate("Home")}>
           <Text style={styles.backButtonText}>{'<'}</Text>
         </TouchableOpacity>
+        </View>
         <Text style={styles.headerTitle}>{title}</Text>
       </View>
       {/* Event Detail Card */}

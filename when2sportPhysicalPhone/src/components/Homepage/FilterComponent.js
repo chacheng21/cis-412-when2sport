@@ -11,7 +11,7 @@ function FilterComponent(props) {
   const [endDate, setEndDate] = useState(new Date());
   const [showStartPicker, setShowStartPicker] = useState(false);
   const [showEndPicker, setShowEndPicker] = useState(false);
-  const [sport, setSport] = useState('');
+  const [sport, setSport] = useState('all');
   const [skillLevel, setSkillLevel] = useState('any');
   const [distance, setDistance] = useState(0);
   const [activeFilter, setActiveFilter] = useState(''); // To track which filter is active
@@ -72,13 +72,19 @@ function FilterComponent(props) {
       }
 
       {activeFilter === 'sport' &&
-        <Picker style={{ marginBottom: -20 }} selectedValue={sport} onValueChange={setSport}>
-          <Picker.Item label="All Sports" value="" />
-          <Picker.Item label="Football" value="football" />
-          <Picker.Item label="Basketball" value="basketball" />
-          <Picker.Item label="Tennis" value="tennis" />
+        <RadioButton.Group style={{ marginBottom: -20 }} onValueChange={setSport} value={sport} >
+          <RadioButton.Item label="All Sports" value="all" />
+          <RadioButton.Item label="Badminton" value="badminton" />
+          <RadioButton.Item label="Baseball" value="baseball" />
+          <RadioButton.Item label="Basketball" value="basketball" />
+          <RadioButton.Item label="Football" value="football" />
+          <RadioButton.Item label="Pickleball" value="pickleball" />
+          <RadioButton.Item label="Ping Pong" value="pingpong" />
+          <RadioButton.Item label="Soccer" value="soccer" />
+          <RadioButton.Item label="Tennis" value="tennis" />
+          <RadioButton.Item label="Volleyball" value="volleyball" />
           {/* Add more sports options if needed */}
-        </Picker>
+        </RadioButton.Group>
       }
 
       {activeFilter === 'skill' &&
@@ -92,6 +98,7 @@ function FilterComponent(props) {
 
       {activeFilter === 'location' &&
         <View style = {{marginTop: 20, marginBottom: -20}}>
+          <Text style={styles.locationText}>Using your current location </Text>
           <Text style={styles.distanceText}>Distance: {distance} km</Text>
           <Slider
             style={styles.slider}
@@ -117,7 +124,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
   },
@@ -125,6 +132,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: -30,
+  },
+  locationText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  distanceText: {
+    fontSize: 14,
   },
   filterButton: {
     flex: 1,

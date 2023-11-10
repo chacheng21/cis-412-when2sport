@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, ScrollView, Platform } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 import { useAvailableEvents } from "../../constants/AvailableEventsContext";
@@ -16,6 +16,7 @@ const AvailableEvents = ({ username, navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.headerText}> Events Happening On </Text>
       <View style={styles.datePickerContainer}>
         <DateTimePicker
           value={selectedDate}
@@ -45,8 +46,13 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 5,
   },
-  datePickerContainer: {
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
     marginBottom: 10,
+  },
+  datePickerContainer: {
+    marginBottom: 6,
     width: '100%',
     alignItems: "flex-start",
     marginLeft: -8,
