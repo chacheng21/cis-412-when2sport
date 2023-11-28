@@ -10,13 +10,6 @@ const UpcomingEvents = ({ username, navigation }) => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>My Upcoming Events</Text>
-        <TouchableOpacity style={styles.addButton} onPress = {
-          () => {
-            navigation.navigate('CreateNewEvent', { username })
-          }
-        }>
-          <Text style={styles.addButtonText}>+</Text>
-        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -54,18 +47,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  addButton: {
-    backgroundColor: 'red',
-    borderRadius: 25,
-    width: 45,
-    height: 45,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  addButtonText: {
-    color: 'white',
-    fontSize: 40,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView, Platform } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Platform, TouchableOpacity } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 import { useAvailableEvents } from "../../constants/AvailableEventsContext";
@@ -62,6 +62,18 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 10,
     left: 8,
+  },
+  addButton: {
+    backgroundColor: 'red',
+    borderRadius: 25,
+    width: 45,
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addButtonText: {
+    color: 'white',
+    fontSize: 40,
   },
 });
 
