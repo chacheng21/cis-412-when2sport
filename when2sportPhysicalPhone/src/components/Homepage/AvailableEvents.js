@@ -4,6 +4,17 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 import { useAvailableEvents } from "../../constants/AvailableEventsContext";
 
+const parseTime = (timeString) => {
+  let [time, modifier] = timeString.split(' ');
+  let [hours, minutes] = time.split(':').map(Number);
+  if (modifier === 'PM' && hours < 12) {
+    hours += 12;
+  } else if (modifier === 'AM' && hours === 12) {
+    hours = 0;
+  }
+  return hours * 60 + minutes; // Convert time to minutes
+}
+
 const AvailableEvents = ({ username, navigation }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const { availableEvents, setAvailableEvents } = useAvailableEvents()
@@ -13,6 +24,8 @@ const AvailableEvents = ({ username, navigation }) => {
       setSelectedDate(date);
     }
   };
+
+  const sortedAvailableEvents = availableEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) })
 
   return (
     <View style={styles.container}>
@@ -27,7 +40,7 @@ const AvailableEvents = ({ username, navigation }) => {
       </View>
 
       <ScrollView style={styles.eventsList}>
-        {availableEvents.map((item, index) => {
+        {sortedAvailableEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) }).map((item, index) => {
           return <TimeAssociatedEventCard username={username} key={index} title={item.title} date={item.date} startTime={item.startTime} endTime={item.endTime}
             sport={item.sport} skillLevel={item.skillLevel} location={item.location} capacity={item.capacity} attendees={item.attendees}
             host={item.host} navigation={navigation} privacy={item.privacy} id={item.id}

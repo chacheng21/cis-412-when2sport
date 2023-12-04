@@ -171,7 +171,7 @@ const NewEventForm = ({ navigation, route }) => {
                 }}
                 style={{ width: '100%' }}
               >
-                <Picker.Item label="Any" value="any" />
+                <Picker.Item label="Any" value="Any" />
                 <Picker.Item label="Beginner" value="Beginner" />
                 <Picker.Item label="Intermediate" value="Intermediate" />
                 <Picker.Item label="Advanced" value="Advanced" />

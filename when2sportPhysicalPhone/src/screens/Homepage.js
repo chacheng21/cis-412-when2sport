@@ -5,7 +5,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import React, { createContext, useContext, useState } from "react";
-
+import UsernameContext from '../constants/UsernameContext';
 import FilterComponent from '../components/Homepage/FilterComponent'
 import AvailableEvents from '../components/Homepage/AvailableEvents';
 import UpcomingEvents from '../components/Homepage/UpcomingEvents';
@@ -13,7 +13,7 @@ import Header from '../components/Header';
 import CreateEventButton from '../components/CreateEventButton';
 
 const Homepage = ({ route, navigation }) => {
-  const username = "Kisha"
+  const { username } = useContext(UsernameContext);
 
   return (
     <SafeAreaView style={styles.safeArea}>
