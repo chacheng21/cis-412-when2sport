@@ -50,13 +50,18 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     borderRadius: 15,
-    backgroundColor: '#6F9BD1',
-    minHeight: 210
+    backgroundColor: '#73A6E5',
+    minHeight: 210,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
   },
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom: 10,
     marginBottom: 10,
   },
   headerText: {
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
   },
   noEventsText: {
     fontSize: 20,
-    color: 'black',
+    color: '#2E68AA',
     textAlign: 'center',
     marginTop: 50, // Center the text vertically within the container
   },

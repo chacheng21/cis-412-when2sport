@@ -36,6 +36,8 @@ const AvailableEvents = ({ username, navigation }) => {
           mode="date"
           display="calendar"
           onChange={onDateChange}
+          textColor='#1A508E'
+          textAlign='left'
         />
       </View>
 
@@ -63,12 +65,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#1A508E',
   },
   datePickerContainer: {
     marginBottom: 6,
     width: '100%',
-    alignItems: "flex-start",
-    marginLeft: -8,
+    alignItems: "left-start",
+    textAlign: 'left',
   },
   eventsList: {
     height: EVENT_CARD_HEIGHT * 2, // Display 2 events at a time

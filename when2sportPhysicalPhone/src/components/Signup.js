@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#000',
+    color: '#1A508E',
   },
   input: {
     width: '100%',

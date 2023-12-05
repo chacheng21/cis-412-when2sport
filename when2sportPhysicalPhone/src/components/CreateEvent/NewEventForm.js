@@ -219,9 +219,9 @@ const NewEventForm = ({ navigation, route }) => {
         <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.navigate("Home")}>
           <Text style={styles.buttonText}>Cancel</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.saveButton} >
+        {/* <TouchableOpacity style={styles.saveButton} >
           <Text style={styles.buttonText}>Save</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity style={styles.publishButton} onPress={submitForm}>
           <Text style={styles.publishButtonText}>Publish</Text>
         </TouchableOpacity>
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: '#1A508E',
     borderWidth: 1,
     borderRadius: 5,
     marginVertical: 10,
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
   timeInput: {
     width: '45%', // This can be adjusted as needed
     height: 40,
-    borderColor: 'gray',
+    borderColor: '#1A508E',
     borderWidth: 1,
     borderRadius: 5,
     marginVertical: 10,
@@ -298,12 +298,13 @@ const styles = StyleSheet.create({
   },
   label: {
     flex: 1, // takes 1/3 of the space
-    fontSize: 16, // Adjust the size as necessary
+    fontSize: 16, // Adjust the size as necessary 
+    color: '#1A508E',
   },
   input: {
     flex: 2, // takes 2/3 of the space
     height: 40,
-    borderColor: 'gray',
+    borderColor: '#1A508E',
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
@@ -320,7 +321,7 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     // If the Cancel and Save buttons should look similar, give them the same style
-    backgroundColor: '#C9C9C9', // Adjust color accordingly
+    backgroundColor: '#E2EFFF', // Adjust color accordingly
     padding: 10,
     borderRadius: 5,
     flexGrow: 1, // buttons will share the space
@@ -329,23 +330,24 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     // Same style as cancelButton if they look the same
-    backgroundColor: '#C9C9C9',
+    backgroundColor: '#E2EFFF',
     padding: 10,
     borderRadius: 5,
-    flexGrow: 1,
+    //flexGrow: 1,
     marginHorizontal: 5,
   },
   publishButton: {
-    backgroundColor: 'red',
+    backgroundColor: '#ED4064',
     padding: 10,
     borderRadius: 5,
-    flexGrow: 1,
-    left: 15,
+    flexGrow: 0.3,
+    left: -5,
     marginHorizontal: 5,
   },
   buttonText: {
     textAlign: 'center',
     fontWeight: 'bold',
+    color: '#73A6E5',
   },
   publishButtonText: {
     textAlign: 'center',
@@ -354,14 +356,14 @@ const styles = StyleSheet.create({
   },
   pickerText: {
     fontSize: 16,
-    color: '#000', 
+    color: '#1A508E', 
     paddingLeft: 0,
     paddingTop: 10,  
     alignSelf: 'flex-start', 
   },
   eventTitleInput: {
     height: 50, // Set a fixed height for the input
-    borderColor: 'gray',
+    borderColor: '#1A508E',
     borderWidth: 1,
     borderRadius: 5,
     marginVertical: 10,

@@ -15,10 +15,10 @@ const CreateEventButton = ({ username, navigation }) => {
 
 const styles = StyleSheet.create({
   addButton: {
-    backgroundColor: 'red',
-    borderRadius: 40,
-    width: 80,
-    height: 80,
+    backgroundColor: '#ED4064',
+    borderRadius: 35,
+    width: 70,
+    height: 70,
     justifyContent: 'center',
     alignItems: 'center',
   },

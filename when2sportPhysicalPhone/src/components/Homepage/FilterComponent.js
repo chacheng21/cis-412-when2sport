@@ -22,16 +22,16 @@ function FilterComponent(props) {
         <Text style={styles.headerText}>Filter By</Text>
         <View style={styles.filtersRow}>
           <TouchableOpacity style={styles.filterButton} onPress={() => setActiveFilter(activeFilter === 'time' ? '' : 'time')}>
-            <Text>Time</Text>
+            <Text style={styles.filterButtonText}>Time</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.filterButton} onPress={() => setActiveFilter(activeFilter === 'sport' ? '' : 'sport')}>
-            <Text>Sport</Text>
+            <Text style={styles.filterButtonText}>Sport</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.filterButton} onPress={() => setActiveFilter(activeFilter === 'skill' ? '' : 'skill')}>
-            <Text>Skill Level</Text>
+            <Text style={styles.filterButtonText}>Skill Level</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.filterButton} onPress={() => setActiveFilter(activeFilter === 'location' ? '' : 'location')}>
-            <Text>Location </Text>
+            <Text style={styles.filterButtonText}>Location</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#1A508E',
   },
   filtersRow: {
     flexDirection: 'row',
@@ -137,9 +138,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#1A508E',
+
   },
   distanceText: {
     fontSize: 14,
+    color: '#1A508E',
+
   },
   filterButton: {
     flex: 1,
@@ -156,6 +161,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 1.5,
     fontSize: 5,
+  },
+  filterButtonText: {
+    color: '#1A508E',
   },
   slider: {
     marginTop: 10,

@@ -17,10 +17,14 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     padding: 10,
-    backgroundColor: '#6F9BD1',
+    backgroundColor: '#73A6E5',
     borderRadius: 10,
     top: -15,
     height: 130,  // Adjust this height if necessary
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
   },
   welcomeText: {
     fontSize: 18,

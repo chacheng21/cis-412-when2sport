@@ -4,15 +4,15 @@ import { useUpcomingEvents } from "../../constants/UpcomingEventsContext";
 import { useAvailableEvents } from "../../constants/AvailableEventsContext";
 
 const iconMap = {
-  calendar: require('../../assets/iconMap/calendar.png'),
-  clock: require('../../assets/iconMap/clock.png'),
-  Tennis: require('../../assets/iconMap/Tennis.png'),
-  Soccer: require('../../assets/iconMap/Soccer.png'),
-  Volleyball: require('../../assets/iconMap/Volleyball.png'),
-  Beginner: require('../../assets/iconMap/easy.png'),
-  Intermediate: require('../../assets/iconMap/medium.png'),
-  Advanced: require('../../assets/iconMap/hard.png'),
-  location: require('../../assets/iconMap/map-marker.png'),
+  calendar: require('../../assets/icons/calendar.png'),
+  clock: require('../../assets/icons/clock.png'),
+  Tennis: require('../../assets/icons/Tennis.png'),
+  Soccer: require('../../assets/icons/Soccer.png'),
+  Volleyball: require('../../assets/icons/Volleyball.png'),
+  Beginner: require('../../assets/icons/easy.png'),
+  Intermediate: require('../../assets/icons/medium.png'),
+  Advanced: require('../../assets/icons/hard.png'),
+  location: require('../../assets/icons/map-marker.png'),
 };
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -114,7 +114,7 @@ const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, loca
         renderItem={({ item }) => (
           <View style={{ width: itemWidth }}>
             {item ? (
-              <Image source={require("../../assets/iconMap/person-circle.png")} style={styles.attendIcon} />
+              <Image source={require("../../assets/icons/person-circle.png")} style={styles.attendIcon} />
             ) : (
               <View style={styles.emptyIcon} />
             )}

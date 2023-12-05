@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "flex-start",
-    margin: 10,
+    margin: 5,
   },
   timeWrapper: {
     marginRight: 15,
@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 18,
-    color: "#000",
+    color: "#1A508E",
+    textAlign: 'left',
   }
 });
 

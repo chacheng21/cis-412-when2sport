@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
-    shadowRadius: 3,
+    shadowRadius: 2,
   },
   header: {
     flexDirection: "row",
@@ -127,12 +127,12 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    color: "#000",
+    color: "#6F9BD1",
     flex: 1,
     marginLeft: 10,
   },
   joinButton: {
-    backgroundColor: 'red',
+    backgroundColor: '#ED4064',
     borderRadius: 5,
     padding: 8,
   },
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   },
   eventTitle: {
     fontSize: 22,
-    color: "#000",
+    color: "#1A508E",
     marginTop: 6,
   },
   location: {
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   },
   attendees: {
     fontSize: 14,
-    color: "black",
+    color: "#1A508E",
     marginTop: 5,
   },
   imagesContainer: {
