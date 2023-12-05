@@ -6,13 +6,18 @@ import { useAvailableEvents } from "../../constants/AvailableEventsContext";
 const iconMap = {
   calendar: require('../../assets/icons/calendar.png'),
   clock: require('../../assets/icons/clock.png'),
-  Tennis: require('../../assets/icons/Tennis.png'),
-  Soccer: require('../../assets/icons/Soccer.png'),
-  Volleyball: require('../../assets/icons/Volleyball.png'),
   Beginner: require('../../assets/icons/easy.png'),
   Intermediate: require('../../assets/icons/medium.png'),
   Advanced: require('../../assets/icons/hard.png'),
   location: require('../../assets/icons/map-marker.png'),
+
+  Soccer: require('../../assets/icons/Soccer.png'),
+  Tennis: require('../../assets/icons/Tennis.png'),
+  Volleyball: require('../../assets/icons/Volleyball.png'),
+  Badminton: require('../../assets/icons/Badminton.png'),
+  Baseball: require('../../assets/icons/Baseball.png'),
+  Basketball: require('../../assets/icons/Basketball.png'),
+
 };
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -172,6 +177,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center', // Center-align the text
     fontSize: 18,
+    color: '#1A508E',
     // Add additional text styling as needed
   },
   header: {
@@ -179,6 +185,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center', // Center content horizontally
     padding: 16,
+    color: '#1A508E',
     // Remove 'position' and 'left' from the backButton style if present
   },
   backButton: {
@@ -187,6 +194,7 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     fontSize: 24, // Adjust the size as needed
+    color: '#1A508E',
   },
   headerTitle: {
     fontWeight: 'bold',
@@ -194,6 +202,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     textAlign: 'center', // Align text to center
     flex: 1, // Take up available space
+    color: '#1A508E',
+
   },
   imagesContainer: {
     flexDirection: "row",
@@ -217,7 +227,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e0e0e0", // Placeholder color
   },
   joinButton: {
-    backgroundColor: 'red',
+    backgroundColor: '#ED4064',
     padding: 10,
     borderRadius: 5,
     flexGrow: 1,
@@ -240,13 +250,13 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginHorizontal: 5,
     width: 100,
-    borderColor: 'red',
+    borderColor: '#ED4064',
     borderWidth: 1,
   },
   leaveButtonText: {
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'red',
+    color: '#ED4064',
   },
 });
 

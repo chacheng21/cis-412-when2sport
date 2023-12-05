@@ -299,6 +299,7 @@ const styles = StyleSheet.create({
     flex: 1, // takes 1/3 of the space
     fontSize: 16, // Adjust the size as necessary 
     color: '#1A508E',
+    fontWeight: 'bold',
   },
   input: {
     flex: 2, // takes 2/3 of the space

@@ -7,6 +7,10 @@ const iconMap = {
   Tennis: require('../../assets/icons/Tennis.png'),
   Soccer: require('../../assets/icons/Soccer.png'),
   Volleyball: require('../../assets/icons/Volleyball.png'),
+  Badminton: require('../../assets/icons/Badminton.png'),
+  Baseball: require('../../assets/icons/Baseball.png'),
+  Basketball: require('../../assets/icons/Basketball.png'),
+
   Beginner: require('../../assets/icons/easy.png'),
   Intermediate: require('../../assets/icons/medium.png'),
   Advanced: require('../../assets/icons/hard.png'),

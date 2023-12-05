@@ -15,7 +15,7 @@ const Signup = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Signup</Text>
+      <Text style={styles.header}>Welcome to When2Sport</Text>
       <TextInput
         style={styles.input}
         placeholder="Username"
