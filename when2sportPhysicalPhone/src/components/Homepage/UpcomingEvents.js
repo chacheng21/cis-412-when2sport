@@ -17,7 +17,7 @@ const parseTime = (timeString) => {
 const UpcomingEvents = ({ username, navigation }) => {
   const { upcomingEvents, setUpcomingEvents } = useUpcomingEvents();
   const sortedUpcomingEvents = upcomingEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) })
-  // Sample data for the FlatList
+  console.log(sortedUpcomingEvents)
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -35,7 +35,7 @@ const UpcomingEvents = ({ username, navigation }) => {
           keyExtractor={(item, index) => index}
           horizontal={true}
           pagingEnabled={true}
-          showsHorizontalScrollIndicator={false}
+          showsHorizontalScrollIndicator={true}
         />
       ) : (
         <Text style={styles.noEventsText}>No Upcoming Events</Text>

@@ -48,6 +48,7 @@ const NewEventForm = ({ navigation, route }) => {
     }
 
     const updatedUpcomingEvents = [ data, ...upcomingEvents]
+    console.log(updatedUpcomingEvents)
     setUpcomingEvents(updatedUpcomingEvents)
 
     navigation.navigate("Home")
