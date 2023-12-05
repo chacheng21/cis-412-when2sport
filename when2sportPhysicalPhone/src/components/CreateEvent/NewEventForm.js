@@ -234,14 +234,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
   },
-  input: {
-    height: 40,
-    borderColor: '#1A508E',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginVertical: 10,
-    paddingHorizontal: 10,
-  },
   timeContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -305,6 +297,7 @@ const styles = StyleSheet.create({
     flex: 2, // takes 2/3 of the space
     height: 40,
     borderColor: '#1A508E',
+    color: '#1A508E',
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
@@ -364,6 +357,7 @@ const styles = StyleSheet.create({
   eventTitleInput: {
     height: 50, // Set a fixed height for the input
     borderColor: '#1A508E',
+    color: '#1A508E', 
     borderWidth: 1,
     borderRadius: 5,
     marginVertical: 10,
