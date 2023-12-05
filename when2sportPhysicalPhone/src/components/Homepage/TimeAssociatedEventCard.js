@@ -3,9 +3,6 @@ import { View, StyleSheet, Text } from "react-native";
 import EventCard from "./EventCard";  // Assuming ProfileCard is in the same directory
 
 const TimeAssociatedEventCard = (props) => {
-  console.log("HELLO")
-  console.log(props.startTime)
-  console.log(props.startTime.split(/\s+/))
   return (
     <View style={styles.container}>
       <View style={styles.timeWrapper}>

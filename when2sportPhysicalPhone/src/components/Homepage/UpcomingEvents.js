@@ -17,7 +17,6 @@ const parseTime = (timeString) => {
 const UpcomingEvents = ({ username, navigation }) => {
   const { upcomingEvents, setUpcomingEvents } = useUpcomingEvents();
   const sortedUpcomingEvents = upcomingEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) })
-  console.log(sortedUpcomingEvents)
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
