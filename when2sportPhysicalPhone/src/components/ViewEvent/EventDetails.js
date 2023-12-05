@@ -3,16 +3,16 @@ import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, Dimensions }
 import { useUpcomingEvents } from "../../constants/UpcomingEventsContext";
 import { useAvailableEvents } from "../../constants/AvailableEventsContext";
 
-const icons = {
-  calendar: require('../../assets/icons/calendar.png'),
-  clock: require('../../assets/icons/clock.png'),
-  Tennis: require('../../assets/icons/Tennis.png'),
-  Soccer: require('../../assets/icons/Soccer.png'),
-  Volleyball: require('../../assets/icons/Volleyball.png'),
-  Beginner: require('../../assets/icons/easy.png'),
-  Intermediate: require('../../assets/icons/medium.png'),
-  Advanced: require('../../assets/icons/hard.png'),
-  location: require('../../assets/icons/map-marker.png'),
+const iconMap = {
+  calendar: require('../../assets/iconMap/calendar.png'),
+  clock: require('../../assets/iconMap/clock.png'),
+  Tennis: require('../../assets/iconMap/Tennis.png'),
+  Soccer: require('../../assets/iconMap/Soccer.png'),
+  Volleyball: require('../../assets/iconMap/Volleyball.png'),
+  Beginner: require('../../assets/iconMap/easy.png'),
+  Intermediate: require('../../assets/iconMap/medium.png'),
+  Advanced: require('../../assets/iconMap/hard.png'),
+  location: require('../../assets/iconMap/map-marker.png'),
 };
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -88,23 +88,23 @@ const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, loca
       {/* Event Detail Card */}
       <View style={styles.cardContainer}>
         <View style={styles.row}>
-          <Image source={icons.calendar} style={styles.icon} />
+          <Image source={iconMap.calendar} style={styles.icon} />
           <Text style={styles.text}>{date}</Text>
         </View>
         <View style={styles.row}>
-          <Image source={icons.clock} style={styles.icon} />
+          <Image source={iconMap.clock} style={styles.icon} />
           <Text style={styles.text}>{`${startTime} - ${endTime}`}</Text>
         </View>
         <View style={styles.row}>
-          <Image source={icons[sport]} style={styles.icon} />
+          <Image source={iconMap[sport]} style={styles.icon} />
           <Text style={styles.text}>{sport}</Text>
         </View>
         <View style={styles.row}>
-          <Image source={icons[skillLevel]} style={styles.icon} />
+          <Image source={iconMap[skillLevel]} style={styles.icon} />
           <Text style={styles.text}>{skillLevel}</Text>
         </View>
         <View style={styles.row}>
-          <Image source={icons.location} style={styles.icon} />
+          <Image source={iconMap.location} style={styles.icon} />
           <Text style={styles.text}>{location}</Text>
         </View>
       </View>
@@ -114,7 +114,7 @@ const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, loca
         renderItem={({ item }) => (
           <View style={{ width: itemWidth }}>
             {item ? (
-              <Image source={require("../../assets/icons/person-circle.png")} style={styles.attendIcon} />
+              <Image source={require("../../assets/iconMap/person-circle.png")} style={styles.attendIcon} />
             ) : (
               <View style={styles.emptyIcon} />
             )}
