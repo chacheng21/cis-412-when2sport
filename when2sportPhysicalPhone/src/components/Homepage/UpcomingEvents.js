@@ -4,7 +4,7 @@ import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 import { useUpcomingEvents } from "../../constants/UpcomingEventsContext";
 
 const parseTime = (timeString) => {
-  let [time, modifier] = timeString.split(' ');
+  let [time, modifier] = timeString.split(/\s+/);
   let [hours, minutes] = time.split(':').map(Number);
   if (modifier === 'PM' && hours < 12) {
     hours += 12;
