@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, FlatList, TouchableOpacity } from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 import { useUpcomingEvents } from "../../constants/UpcomingEventsContext";
 
@@ -15,12 +16,40 @@ const parseTime = (timeString) => {
 }
 
 const UpcomingEvents = ({ username, navigation }) => {
+  const [selectedDate, setSelectedDate] = useState(new Date())
   const { upcomingEvents, setUpcomingEvents } = useUpcomingEvents();
-  const sortedUpcomingEvents = upcomingEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) })
+
+  const onDateChange = (event, date) => {
+    if (date) {
+      setSelectedDate(date);
+    }
+  };
+
+  const filteredUpcomingEvents = upcomingEvents.filter(item => {
+    let selectedDateString = selectedDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    return item.date === selectedDateString
+  })
+
+  const sortedUpcomingEvents = filteredUpcomingEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) })
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>My Upcoming Events</Text>
+        <Text style={styles.headerText}>My Upcoming Events </Text>
+      </View>
+      <View style={styles.datePickerContainer}>
+        <DateTimePicker
+          value={selectedDate}
+          mode="date"
+          display="calendar"
+          onChange={onDateChange}
+          textColor='white'
+          textAlign='left'
+        />
       </View>
       {sortedUpcomingEvents.length > 0 ? (
         <FlatList
@@ -37,7 +66,7 @@ const UpcomingEvents = ({ username, navigation }) => {
           showsHorizontalScrollIndicator={true}
         />
       ) : (
-        <Text style={styles.noEventsText}>No Upcoming Events</Text>
+        <Text style={styles.noEventsText}>No Upcoming Events </Text>
       )}
     </View>
   );
@@ -73,6 +102,11 @@ const styles = StyleSheet.create({
     color: '#2E68AA',
     textAlign: 'center',
     marginTop: 50, // Center the text vertically within the container
+  },
+  datePickerContainer: {
+    position: 'absolute',
+    right: 10, // adjust as needed
+    top: 5 // adjust as needed
   },
 });
 

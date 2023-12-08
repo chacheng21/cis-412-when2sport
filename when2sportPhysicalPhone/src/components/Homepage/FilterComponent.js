@@ -6,23 +6,22 @@ import { RadioButton } from 'react-native-paper';
 import Slider from '@react-native-community/slider';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-function FilterComponent(props) {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-  const [showStartPicker, setShowStartPicker] = useState(false);
-  const [showEndPicker, setShowEndPicker] = useState(false);
-  const [sport, setSport] = useState('all');
-  const [skillLevel, setSkillLevel] = useState('any');
-  const [distance, setDistance] = useState(0);
+function FilterComponent({selectedDate, setSelectedDate, sport, setSport, skillLevel, setSkillLevel}) {
   const [activeFilter, setActiveFilter] = useState(''); // To track which filter is active
+
+  const onDateChange = (event, date) => {
+    if (date) {
+      setSelectedDate(date);
+    }
+  };
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Filter By</Text>
+        <Text style={styles.headerText}>Available Events</Text>
         <View style={styles.filtersRow}>
           <TouchableOpacity style={styles.filterButton} onPress={() => setActiveFilter(activeFilter === 'time' ? '' : 'time')}>
-            <Text style={styles.filterButtonText}>Time</Text>
+            <Text style={styles.filterButtonText}>Date</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.filterButton} onPress={() => setActiveFilter(activeFilter === 'sport' ? '' : 'sport')}>
             <Text style={styles.filterButtonText}>Sport</Text>
@@ -30,45 +29,21 @@ function FilterComponent(props) {
           <TouchableOpacity style={styles.filterButton} onPress={() => setActiveFilter(activeFilter === 'skill' ? '' : 'skill')}>
             <Text style={styles.filterButtonText}>Skill Level</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.filterButton} onPress={() => setActiveFilter(activeFilter === 'location' ? '' : 'location')}>
-            <Text style={styles.filterButtonText}>Location</Text>
-          </TouchableOpacity>
         </View>
       </View>
 
       {/* Time Filter */}
       {activeFilter === 'time' &&
-        <>
-          <TouchableOpacity style = {{marginTop: 20}} onPress={() => setShowStartPicker(true)}>
-            <Text>Start: {startDate.toLocaleString()}</Text>
-          </TouchableOpacity>
-          {showStartPicker && (
-            <DateTimePicker
-              value={startDate}
-              mode={'datetime'}
-              display="default"
-              onChange={(event, selectedDate) => {
-                setShowStartPicker(false);
-                if (selectedDate) setStartDate(selectedDate);
-              }}
-            />
-          )}
-
-          <TouchableOpacity onPress={() => setShowEndPicker(true)}>
-            <Text>End: {endDate.toLocaleString()}</Text>
-          </TouchableOpacity>
-          {showEndPicker && (
-            <DateTimePicker
-              value={endDate}
-              mode={'datetime'}
-              display="default"
-              onChange={(event, selectedDate) => {
-                setShowEndPicker(false);
-                if (selectedDate) setEndDate(selectedDate);
-              }}
-            />
-          )}
-        </>
+        <View style={styles.datePickerContainer}>
+          <DateTimePicker
+            value={selectedDate}
+            mode="date"
+            display="calendar"
+            onChange={onDateChange}
+            textColor='#1A508E'
+            textAlign='left'
+          />
+        </View>
       }
 
       {activeFilter === 'sport' &&
@@ -94,21 +69,6 @@ function FilterComponent(props) {
           <RadioButton.Item label="Intermediate" value="intermediate" />
           <RadioButton.Item label="Advanced" value="advanced" />
         </RadioButton.Group>
-      }
-
-      {activeFilter === 'location' &&
-        <View style = {{marginTop: 20, marginBottom: -20}}>
-          <Text style={styles.locationText}>Using your current location </Text>
-          <Text style={styles.distanceText}>Distance: {distance} km</Text>
-          <Slider
-            style={styles.slider}
-            value={distance}
-            onValueChange={setDistance}
-            minimumValue={0}
-            maximumValue={100}
-            step={1}
-          />
-        </View>
       }
     </ScrollView>
   );
@@ -168,6 +128,13 @@ const styles = StyleSheet.create({
   slider: {
     marginTop: 10,
     marginBottom: 20,
+  },
+  datePickerContainer: {
+    marginTop: 20,
+    marginBottom: -1,
+    width: '100%',
+    alignItems: "left-start",
+    textAlign: 'left',
   },
 });
 

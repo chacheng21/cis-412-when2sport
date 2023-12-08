@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, Platform, TouchableOpacity } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import TimeAssociatedEventCard from "./TimeAssociatedEventCard";
 import { useAvailableEvents } from "../../constants/AvailableEventsContext";
 
@@ -15,32 +14,42 @@ const parseTime = (timeString) => {
   return hours * 60 + minutes; // Convert time to minutes
 }
 
-const AvailableEvents = ({ username, navigation }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+const applyFilters = (availableEvents, selectedDate, sport, skillLevel) => {
+  let availableEventsCopy = [...availableEvents]
+  const formattedDate = selectedDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+  availableEventsCopy = availableEventsCopy.filter(element => {
+    if (element.date !== formattedDate) {
+      return false
+    }
+
+    if (sport !== 'all' && element.sport.toLowerCase() !== sport) {
+      return false
+    }
+
+    if (skillLevel !== 'any' && element.skillLevel.toLowerCase() !== skillLevel) {
+      return false
+    }
+
+    return true
+  })
+
+  return availableEventsCopy
+}
+
+const AvailableEvents = ({ selectedDate, sport, skillLevel, username, navigation }) => {
   const { availableEvents, setAvailableEvents } = useAvailableEvents()
 
-  const onDateChange = (event, date) => {
-    if (date) {
-      setSelectedDate(date);
-    }
-  };
+  const filteredAvailableEvents = applyFilters(availableEvents, selectedDate, sport, skillLevel)
 
-  const sortedAvailableEvents = availableEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) })
+  const sortedAvailableEvents = filteredAvailableEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) })
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}> Events Happening On </Text>
-      <View style={styles.datePickerContainer}>
-        <DateTimePicker
-          value={selectedDate}
-          mode="date"
-          display="calendar"
-          onChange={onDateChange}
-          textColor='#1A508E'
-          textAlign='left'
-        />
-      </View>
-
       <ScrollView style={styles.eventsList}>
         {sortedAvailableEvents.sort((a, b) => { return parseTime(a.startTime) - parseTime(b.startTime) }).map((item, index) => {
           return <TimeAssociatedEventCard username={username} key={index} title={item.title} date={item.date} startTime={item.startTime} endTime={item.endTime}
