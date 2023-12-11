@@ -1,8 +1,40 @@
 [
   {
     "id": 10234567,
+    "title": "Pickup Basketball",
+    "date": "December 12, 2023",
+    "startTime": "10:00 AM",
+    "endTime": "12:00 PM",
+    "sport": "Basketball",
+    "skillLevel": "Advanced",
+    "location": "Pottruck",
+    "capacity": 10,
+    "attendees": [
+      "Charles Cheng"
+    ],
+    "host": "Charles Cheng",
+    "privacy": false
+  },
+  {
+    "id": 10234560,
+    "title": "Badminton",
+    "date": "December 12, 2023",
+    "startTime": "11:00 AM",
+    "endTime": "12:00 PM",
+    "sport": "Badminton",
+    "skillLevel": "Intermediate",
+    "location": "Weightman",
+    "capacity": 4,
+    "attendees": [
+      "Charles Cheng"
+    ],
+    "host": "Charles Cheng",
+    "privacy": false
+  },
+  {
+    "id": 10234561,
     "title": "Tennis Singles",
-    "date": "December 8, 2023",
+    "date": "December 12, 2023",
     "startTime": "4:00 PM",
     "endTime": "6:00 PM",
     "sport": "Tennis",
@@ -14,9 +46,25 @@
     "privacy": false
   },
   {
-    "id": 11234567,
+    "id": 10234562,
+    "title": "Tennis Doubles",
+    "date": "December 12, 2023",
+    "startTime": "7:00 PM",
+    "endTime": "9:00 PM",
+    "sport": "Tennis",
+    "skillLevel": "Intermediate",
+    "location": "Penn Tennis Center",
+    "capacity": 4,
+    "attendees": [
+      "Charles Cheng"
+    ],
+    "host": "Charles Cheng",
+    "privacy": false
+  },
+  {
+    "id": 11234568,
     "title": "Co-Ed Soccer",
-    "date": "December 9, 2023",
+    "date": "December 13, 2023",
     "startTime": "6:00 PM",
     "endTime": "9:00 PM",
     "sport": "Soccer",

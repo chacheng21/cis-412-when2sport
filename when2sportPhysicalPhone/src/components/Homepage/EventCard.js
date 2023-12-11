@@ -53,6 +53,7 @@ const EventCard = ({ username, title, date, startTime, endTime, sport, skillLeve
 
     setAvailableEvents(newAvailableEvents)
     setUpcomingEvents(newUpcomingEvents)
+
   }
 
   const handlePress = (title, date, startTime, endTime, sport, skillLevel, location, capacity, attendees, host, username, privacy, id) => {
