@@ -53,9 +53,9 @@ const styles = StyleSheet.create({
     bottom: 30, // adjust as needed
   },
   separator: {
-    height: 1, // Height of the separator line
+    height: 2, // Height of the separator line
     width: 350, // Width of the separator line
-    backgroundColor: '#2E68AA', // Color of the separator line
+    backgroundColor: '#638BBA', // Color of the separator line
     alignSelf: 'center',
   },
 });

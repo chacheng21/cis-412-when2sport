@@ -53,7 +53,6 @@ function FilterComponent({selectedDate, setSelectedDate, sport, setSport, skillL
           <RadioButton.Item label="Baseball" value="baseball" />
           <RadioButton.Item label="Basketball" value="basketball" />
           <RadioButton.Item label="Football" value="football" />
-          <RadioButton.Item label="Pickleball" value="pickleball" />
           <RadioButton.Item label="Ping Pong" value="pingpong" />
           <RadioButton.Item label="Soccer" value="soccer" />
           <RadioButton.Item label="Tennis" value="tennis" />

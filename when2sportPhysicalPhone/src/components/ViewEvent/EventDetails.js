@@ -9,6 +9,7 @@ const iconMap = {
   Beginner: require('../../assets/icons/easy.png'),
   Intermediate: require('../../assets/icons/medium.png'),
   Advanced: require('../../assets/icons/hard.png'),
+  Any: require('../../assets/icons/any.png'),
   location: require('../../assets/icons/map-marker.png'),
 
   Soccer: require('../../assets/icons/Soccer.png'),
@@ -17,10 +18,11 @@ const iconMap = {
   Badminton: require('../../assets/icons/Badminton.png'),
   Baseball: require('../../assets/icons/Baseball.png'),
   Basketball: require('../../assets/icons/Basketball.png'),
-
+  Football: require('../../assets/icons/Football.png'),
+  Pingpong: require('../../assets/icons/PingPong.png'),
 };
 
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth } = Dimensions.get('window'); 
 const desiredMargin = 45; // Set the desired margin size
 const itemWidth = (screenWidth - 2 * desiredMargin) / 4;
 
@@ -105,7 +107,7 @@ const EventDetails = ({ title, date, startTime, endTime, sport, skillLevel, loca
           <Text style={styles.text}>{sport}</Text>
         </View>
         <View style={styles.row}>
-          <Image source={iconMap[skillLevel]} style={styles.icon} />
+          <Image source={iconMap[skillLevel]} style={styles.difficultyIcon} />
           <Text style={styles.text}>{skillLevel}</Text>
         </View>
         <View style={styles.row}>
@@ -173,6 +175,11 @@ const styles = StyleSheet.create({
     width: 20, // Set the width of the icon
     height: 20, // Set the height of the icon
     marginRight: 5, // Add some margin to the right of the icon
+  },
+  difficultyIcon: {
+    width: 60,
+    height: 20,
+    marginRight: 0,
   },
   text: {
     textAlign: 'center', // Center-align the text

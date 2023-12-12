@@ -138,7 +138,6 @@ const NewEventForm = ({ navigation, route }) => {
                 <Picker.Item label="Baseball" value="Baseball" />
                 <Picker.Item label="Basketball" value="Basketball" />
                 <Picker.Item label="Football" value="Football" />
-                <Picker.Item label="Pickleball" value="Pickleball" />
                 <Picker.Item label="Ping Pong" value="Pingpong" />
                 <Picker.Item label="Soccer" value="Soccer" />
                 <Picker.Item label="Tennis" value="Tennis" />

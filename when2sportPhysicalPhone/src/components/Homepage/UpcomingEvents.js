@@ -39,7 +39,7 @@ const UpcomingEvents = ({ username, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>My Upcoming Events </Text>
+        <Text style={styles.headerText}>My Enrolled Events </Text>
       </View>
       <View style={styles.datePickerContainer}>
         <DateTimePicker

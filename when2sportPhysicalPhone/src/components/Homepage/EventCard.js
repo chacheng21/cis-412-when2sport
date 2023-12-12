@@ -10,10 +10,13 @@ const iconMap = {
   Badminton: require('../../assets/icons/Badminton.png'),
   Baseball: require('../../assets/icons/Baseball.png'),
   Basketball: require('../../assets/icons/Basketball.png'),
+  Football: require('../../assets/icons/Football.png'),
+  Pingpong: require('../../assets/icons/PingPong.png'),
 
   Beginner: require('../../assets/icons/easy.png'),
   Intermediate: require('../../assets/icons/medium.png'),
   Advanced: require('../../assets/icons/hard.png'),
+  Any: require('../../assets/icons/any.png'),
 };
 
 const sortEventsChronologically = (events) => {
@@ -127,8 +130,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   logo: {
-    width: 25,
-    height: 25,
+    width: 28,
+    height: 28,
   },
   name: {
     fontSize: 16,
@@ -176,13 +179,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   icon: {
-    width: 16,
-    height: 16,
+    width: 18,
+    height: 18,
     borderRadius: 10,
   },
   emptyIcon: {
-    width: 16,
-    height: 16,
+    width: 18,
+    height: 18,
     borderRadius: 12.5,
     backgroundColor: "#e0e0e0", // Placeholder color
   },
@@ -199,9 +202,9 @@ const styles = StyleSheet.create({
     right: -7,  // adjust as needed
   },
   difficultyIcon: {
-    width: 40,
-    height: 40,
-    marginRight: 5,
+    width: 80,
+    height: 30,
+    marginRight: 0,
   },
   difficultyText: {
     fontSize: 14,
